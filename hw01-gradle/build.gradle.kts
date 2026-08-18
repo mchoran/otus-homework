@@ -11,6 +11,11 @@ repositories {
 
 dependencies {
     implementation("com.google.guava:guava:33.6.0-jre")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.11.4")
+}
+
+tasks.test {
+    useJUnitPlatform()
 }
 
 tasks.jar {
