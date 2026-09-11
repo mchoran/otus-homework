@@ -11,6 +11,7 @@ repositories {
 
 dependencies {
     implementation("com.google.guava:guava:33.6.0-jre")
+    implementation("com.fasterxml.jackson.core:jackson-databind:2.18.2")
     testImplementation("org.junit.jupiter:junit-jupiter:5.11.4")
 }
 
