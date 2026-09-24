@@ -40,3 +40,6 @@ bin/
 
 ### Local tests ###
 hw01-gradle/src/test/
+
+### hw08 generated output ###
+outputData.json
