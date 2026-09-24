@@ -15,6 +15,7 @@ dependencies {
     implementation("org.postgresql:postgresql:42.7.7")
     implementation("org.flywaydb:flyway-core:11.13.2")
     implementation("org.flywaydb:flyway-database-postgresql:11.13.2")
+    implementation("org.hibernate.orm:hibernate-core:6.6.29.Final")
     implementation("org.slf4j:slf4j-simple:2.0.17")
     testImplementation("org.junit.jupiter:junit-jupiter:5.11.4")
 }
@@ -28,6 +29,13 @@ tasks.register<JavaExec>("runHomeWork") {
     description = "Runs the hw09 homemade ORM demo"
     classpath = sourceSets["main"].runtimeClasspath
     mainClass.set("ru.otus.java.pro.hw09.HomeWork")
+}
+
+tasks.register<JavaExec>("runHw10") {
+    group = "application"
+    description = "Runs the hw10 Hibernate demo"
+    classpath = sourceSets["main"].runtimeClasspath
+    mainClass.set("ru.otus.java.pro.hw10.DbServiceDemo")
 }
 
 tasks.jar {
