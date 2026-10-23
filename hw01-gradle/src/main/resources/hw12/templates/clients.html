@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Клиенты</title>
+    <style>
+        body { font-family: sans-serif; margin: 2rem auto; max-width: 56rem; }
+        label { display: block; margin-bottom: 0.8rem; }
+        input { width: 100%; max-width: 28rem; padding: 0.4rem; box-sizing: border-box; }
+        button { padding: 0.4rem 1rem; }
+        table { border-collapse: collapse; width: 100%; margin-top: 1rem; }
+        th, td { border: 1px solid #ccc; padding: 0.4rem 0.6rem; text-align: left; vertical-align: top; }
+        .error { color: #a40000; }
+        .toolbar { display: flex; justify-content: space-between; align-items: baseline; }
+    </style>
+</head>
+<body>
+<div class="toolbar">
+    <h1>Клиенты</h1>
+    <p>Администратор: ${(admin!"")?html} · <a href="/logout">Выйти</a></p>
+</div>
+
+<#if error??>
+    <p class="error">${error?html}</p>
+</#if>
+
+<h2>Создать клиента</h2>
+<form method="post" action="/clients" accept-charset="UTF-8">
+    <label>Имя<br><input type="text" name="name" required></label>
+    <label>Адрес<br><input type="text" name="address" required></label>
+    <label>Телефоны через запятую<br><input type="text" name="phones" placeholder="+7-900-111-22-33, +7-900-444-55-66"></label>
+    <button type="submit">Создать</button>
+</form>
+
+<h2>Список клиентов</h2>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Имя</th>
+        <th>Адрес</th>
+        <th>Телефоны</th>
+    </tr>
+    <#list clients as client>
+        <tr>
+            <td>${(client.id!"")?html}</td>
+            <td>${client.name?html}</td>
+            <td>${client.address.street?html}</td>
+            <td><#list client.phones as phone>${phone.number?html}<#sep>, </#list></td>
+        </tr>
+    </#list>
+</table>
+<#if clients?size == 0>
+    <p>Клиентов пока нет.</p>
+</#if>
+</body>
+</html>
