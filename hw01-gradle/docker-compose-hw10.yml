@@ -1,0 +1,14 @@
+services:
+  postgres-hw10:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: hibernateDB
+      POSTGRES_USER: usr
+      POSTGRES_PASSWORD: pwd
+    ports:
+      - "5431:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U usr -d hibernateDB"]
+      interval: 2s
+      timeout: 3s
+      retries: 15
