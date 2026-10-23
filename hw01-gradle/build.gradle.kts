@@ -38,6 +38,20 @@ tasks.register<JavaExec>("runHw10") {
     mainClass.set("ru.otus.java.pro.hw10.DbServiceDemo")
 }
 
+tasks.register<JavaExec>("runHw11Cache") {
+    group = "application"
+    description = "Runs the hw11 cache demo"
+    classpath = sourceSets["main"].runtimeClasspath
+    mainClass.set("ru.otus.java.pro.hw11.cachehw.HWCacheDemo")
+}
+
+tasks.register<JavaExec>("runHw11") {
+    group = "application"
+    description = "Runs the hw11 cached Hibernate demo"
+    classpath = sourceSets["main"].runtimeClasspath
+    mainClass.set("ru.otus.java.pro.hw11.DbServiceDemo")
+}
+
 tasks.jar {
     manifest {
         attributes["Main-Class"] = "ru.otus.java.pro.Main"
