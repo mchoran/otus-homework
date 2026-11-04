@@ -17,7 +17,14 @@ dependencies {
     implementation("org.flywaydb:flyway-database-postgresql:11.13.2")
     implementation("org.hibernate.orm:hibernate-core:6.6.29.Final")
     implementation("org.slf4j:slf4j-simple:2.0.17")
+    implementation("org.eclipse.jetty:jetty-server:11.0.24")
+    implementation("org.eclipse.jetty:jetty-servlet:11.0.24")
+    implementation("org.freemarker:freemarker:2.3.34")
     testImplementation("org.junit.jupiter:junit-jupiter:5.11.4")
+}
+
+tasks.withType<JavaCompile> {
+    options.encoding = "UTF-8"
 }
 
 tasks.test {
@@ -50,6 +57,13 @@ tasks.register<JavaExec>("runHw11") {
     description = "Runs the hw11 cached Hibernate demo"
     classpath = sourceSets["main"].runtimeClasspath
     mainClass.set("ru.otus.java.pro.hw11.DbServiceDemo")
+}
+
+tasks.register<JavaExec>("runHw12") {
+    group = "application"
+    description = "Runs the hw12 web server with Hibernate clients"
+    classpath = sourceSets["main"].runtimeClasspath
+    mainClass.set("ru.otus.java.pro.hw12.WebServerDemo")
 }
 
 tasks.jar {

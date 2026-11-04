@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>CRM</title>
+    <style>
+        body { font-family: sans-serif; margin: 2rem auto; max-width: 32rem; }
+        label { display: block; margin-bottom: 0.8rem; }
+        input { width: 100%; padding: 0.4rem; box-sizing: border-box; }
+        button { padding: 0.4rem 1rem; }
+    </style>
+</head>
+<body>
+<h1>CRM</h1>
+<p>Стартовая страница. Чтобы работать с клиентами, войдите как администратор.</p>
+<p>Логин: <b>admin</b>, пароль: <b>admin</b></p>
+<form action="/login" method="post" accept-charset="UTF-8">
+    <label>Логин<br><input type="text" name="login" value="admin" required></label>
+    <label>Пароль<br><input type="password" name="password" value="admin" required></label>
+    <button type="submit">Войти</button>
+</form>
+</body>
+</html>
