@@ -20,7 +20,9 @@ dependencies {
     implementation("org.eclipse.jetty:jetty-server:11.0.24")
     implementation("org.eclipse.jetty:jetty-servlet:11.0.24")
     implementation("org.freemarker:freemarker:2.3.34")
+    implementation("org.reflections:reflections:0.10.2")
     testImplementation("org.junit.jupiter:junit-jupiter:5.11.4")
+    testImplementation("org.assertj:assertj-core:3.26.3")
 }
 
 tasks.withType<JavaCompile> {
@@ -64,6 +66,14 @@ tasks.register<JavaExec>("runHw12") {
     description = "Runs the hw12 web server with Hibernate clients"
     classpath = sourceSets["main"].runtimeClasspath
     mainClass.set("ru.otus.java.pro.hw12.WebServerDemo")
+}
+
+tasks.register<JavaExec>("runHw13") {
+    group = "application"
+    description = "Runs the hw13 multiplication table trainer"
+    classpath = sourceSets["main"].runtimeClasspath
+    mainClass.set("ru.otus.java.pro.hw13.App")
+    standardInput = System.`in`
 }
 
 tasks.jar {
